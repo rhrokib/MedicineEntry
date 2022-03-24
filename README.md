@@ -6,6 +6,7 @@ The purpose of this project is to learn CRUD operations with .NET Framework.
 
 ## Installation | Run
 `Pre-requisites`
+
 1. ASP.NET Core 6.0
 2. Visual Studio 2022 Profesional | Enterprise | Community (x64) [Recommanded]
 3. Browser (Chrome/Firefox, Edge, etc)
