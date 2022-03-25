@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MedicineEntry.Data;
 using MedicineEntry.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MedicineEntry.Controllers
 {
@@ -45,6 +46,7 @@ namespace MedicineEntry.Controllers
         }
 
         // GET: Medicines/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -53,6 +55,7 @@ namespace MedicineEntry.Controllers
         // POST: Medicines/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Quantity")] Medicine medicine)
@@ -67,6 +70,7 @@ namespace MedicineEntry.Controllers
         }
 
         // GET: Medicines/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,6 +91,7 @@ namespace MedicineEntry.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Quantity")] Medicine medicine)
         {
             if (id != medicine.Id)
@@ -118,6 +123,7 @@ namespace MedicineEntry.Controllers
         }
 
         // GET: Medicines/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,6 +144,7 @@ namespace MedicineEntry.Controllers
         // POST: Medicines/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var medicine = await _context.Medicine.FindAsync(id);
